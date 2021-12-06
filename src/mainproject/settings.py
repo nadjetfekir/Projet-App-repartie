@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'personnel',
     'operationCommerciale',
     'formation',
+    'zone',
 
 ]
 
