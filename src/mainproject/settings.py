@@ -31,11 +31,8 @@ INSTALLED_APPS = [
     'operationCommerciale',
     'formation',
     'zone',
-<<<<<<< HEAD
     'surveillance',
-=======
     'releveSanitaire',
->>>>>>> a3883bfa4628c77d8f99df57f106b77d36078942
 
 ]
 
