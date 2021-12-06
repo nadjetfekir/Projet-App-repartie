@@ -1,4 +1,5 @@
 from django.db import models
+from personnel.models import Personnel
 from multiselectfield import MultiSelectField
 
 # Create your models here.
@@ -11,5 +12,8 @@ class Formation(models.Model):
     pourcentageSatisfaction = models.FloatField()
     MotCleFormateur = models.CharField(max_length=255)
     MotClePersonnel = models.CharField(max_length=255)
-   
+    personnels=models.ManyToManyField(Personnel)
+
+
+
     
