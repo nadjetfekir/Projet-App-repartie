@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'operationCommerciale',
     'formation',
     'zone',
+    'surveillance',
 
 ]
 
