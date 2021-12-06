@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     # our apps
     'personnel',
     'operationCommerciale',
+    'formation',
 
 ]
 
