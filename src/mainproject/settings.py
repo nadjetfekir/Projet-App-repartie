@@ -74,7 +74,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    },
+    'site_france': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd591i5teccm9fo',
+        'USER': 'xszidvmacumupb',
+        'PASSWORD': '0845bfe49c1181e3036c37f09b86f9278c4b58bc8c3c262b6a71c1c59774e288',
+        'HOST': 'ec2-52-17-1-206.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
+    },
 }
 
 
