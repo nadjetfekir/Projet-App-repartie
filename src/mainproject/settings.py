@@ -71,11 +71,13 @@ WSGI_APPLICATION = 'mainproject.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    """
+    'site_france': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
-    'site_france': {
+    """
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'd591i5teccm9fo',
         'USER': 'xszidvmacumupb',
