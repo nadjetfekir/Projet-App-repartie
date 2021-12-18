@@ -3,17 +3,21 @@ from multiselectfield import MultiSelectField
 
 # Create your models here.
 from django.db import models
+
+
 class Personnel(models.Model):
-    identifiant = models.IntegerField( default=0,primary_key=True)
-    nom=models.TextField()
-    prenom=models.TextField()
+    identifiant = models.IntegerField(default=0, primary_key=True)
+    nom = models.TextField()
+    prenom = models.TextField()
+
     class Etat(models.TextChoices):
         ACTIF = 'actif'
         REPOS = 'repos'
         ARRET = 'arret maladie'
         CONGE = 'congé'
-    
-    etat = models.CharField(max_length=14, choices=Etat.choices, default=Etat.ACTIF, )
+
+    etat = models.CharField(
+        max_length=14, choices=Etat.choices, default=Etat.ACTIF, )
 
     class Service(models.TextChoices):
         COMMERCIAL = 'commercial'
@@ -35,8 +39,6 @@ class Personnel(models.Model):
         ASSISTANCETech = 'assistance technique'
         ANALYSE = 'analyse des données'
 
-    service = models.CharField(max_length=30, choices=Service.choices,  )
-    frequenceQardiaque = models.FloatField()
-    tauxSudation = models.FloatField()
-
-    
+    service = models.CharField(max_length=30, choices=Service.choices,)
+    frequenceQardiaque = models.FloatField(null=True)
+    tauxSudation = models.FloatField(null=True)
