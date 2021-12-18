@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     # our apps
     'personnel',
     'operationCommerciale',
@@ -33,6 +34,9 @@ INSTALLED_APPS = [
     'zone',
     'surveillance',
     'releveSanitaire',
+    'api_direction_generale',
+    # our externe DB
+    'DB1',
 
 ]
 
@@ -70,20 +74,19 @@ WSGI_APPLICATION = 'mainproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+
 DATABASES = {
-    """
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd5g24u9ck926qp',
+        'USER': 'snzloskmvzxddx',
+        'PASSWORD': '8e43a5255d7572fbcae38777a4feb9e795819b4a050db3fd2fefc1217a104e4a',
+        'HOST': 'ec2-34-253-116-145.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
+    },
     'site_france': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },
-    """
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd591i5teccm9fo',
-        'USER': 'xszidvmacumupb',
-        'PASSWORD': '0845bfe49c1181e3036c37f09b86f9278c4b58bc8c3c262b6a71c1c59774e288',
-        'HOST': 'ec2-52-17-1-206.eu-west-1.compute.amazonaws.com',
-        'PORT': '5432',
     },
 }
 
