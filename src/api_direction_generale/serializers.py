@@ -10,7 +10,7 @@ from operationCommerciale.models import OperationCommerciale
 class PersonnelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Personnel
-        fields = ['identifiant', 'etat', 'service']
+        fields = ['identifiant', 'nom', 'prenom', 'etat', 'service']
 
 
 class OperationCommercialeSerializer(serializers.ModelSerializer):
