@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.db.models import Sum
+from django.db.models import Sum, Count
 # from django.views.decorators import csrf_exempt
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -86,5 +86,27 @@ def get_opertaionCommercial(request):
         serializer = OperationCommercialeSerializer(
             operationCommercials, many=True)
         return Response(serializer.data)
+    else:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+def get_best_employee(request):
+    # top 3 employee
+    if request.method == 'GET':
+
+        operations_vente = OperationCommerciale.objects.filter(type='vente').values('responsable').annotate(
+            montant_total=Sum('margeDegagee'), nombre_operation=Count('identifiant')).order_by('-montant_total')[:3]
+
+        print(operations_vente)
+        results = []
+        for item in operations_vente:
+            personnel = Personnel.objects.get(pk=item['responsable'])
+            serializer = PersonnelSerializer(personnel)
+            results.append({'personnel': serializer.data,
+                            'marge de vente total': item['montant_total'],
+                            "nombre d'opperations de vente réalisées": item['nombre_operation']})
+
+        return Response(results)
     else:
         return Response(status=status.HTTP_400_BAD_REQUEST)
