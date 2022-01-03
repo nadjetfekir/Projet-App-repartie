@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_tables2',
     # our apps
     'personnel',
     'operationCommerciale',
@@ -35,10 +36,10 @@ INSTALLED_APPS = [
     'surveillance',
     'releveSanitaire',
     'api_direction_generale',
-    # our externe DB
-    'DB1',
-    'django_tables2',
     'Ruby',
+    # our externe DB
+    'db_chili',
+    # 'db_danemark',
 
 ]
 
@@ -85,17 +86,26 @@ DATABASES = {
         'PASSWORD': 'd6c9fd76eb862219c0341936a37c93a9b5b8add9b8a569bc3e53d5dc1f57ff08',
         'HOST': 'ec2-79-125-123-149.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
-
     },
+    'site_chili': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd803n5ifs6ff1p',
+        'USER': 'kkcpvqllcdqywo',
+        'PASSWORD': 'a22513d20ce317b3d3d674b9a8392152125f7acc0fe114cab2ff7bbaad3188d0',
+        'HOST': 'ec2-54-217-195-234.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
+    },
+
+    # 'site_danemark': {
+    #    'ENGINE': 'django.db.backends.mysql',
+    #    'NAME': 'de4d2pmm5uu33p',
+    #    'USER': 'b2075f4f77d3a4',
+    #    'PASSWORD': '83f7ec6d',
+    #    'HOST': 'eu-cdbr-west-02.cleardb.net',
+    #    'PORT': '5432',
+    # },
 
 }
-
-"""
-    'site_france': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },
-"""
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
