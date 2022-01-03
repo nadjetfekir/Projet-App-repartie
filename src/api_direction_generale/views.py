@@ -8,9 +8,10 @@ from rest_framework.response import Response
 from personnel.models import Personnel
 from operationCommerciale.models import OperationCommerciale
 from api_direction_generale.serializers import PersonnelSerializer, OperationCommercialeSerializer
-
-
+from django.views.generic import ListView, UpdateView, DeleteView, DetailView, CreateView, TemplateView
 # @csrf_exempt
+from django.http import HttpResponse
+import requests
 
 
 @api_view(['GET'])
@@ -48,6 +49,16 @@ def get_employee(request):
         return Response(serializer.data)
     else:
         return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+def get_nb_panne(request):
+    response = requests.get(
+        'http://172.20.10.4:3000/machines/nombreEnPanne')
+    print('//////////////////////')
+
+    print(response.text)
+    html = "<html><body><h2>Le nombre totale de machine en panne:</h2> est %s.</body></html>" % response.text
+    return HttpResponse(html)
 
 
 @api_view(['GET'])
@@ -110,3 +121,20 @@ def get_best_employee(request):
         return Response(results)
     else:
         return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+def get_montantA(request):
+    montant = OperationCommerciale.objects.aggregate(
+        montant_total=Sum('margeDegagee'))
+    html = "<html><body><h2>Le montant totale:</h2> est %d.</body></html>" % int(
+        montant["montant_total"])
+    return HttpResponse(html)
+
+
+"""
+def get_montantA(request):
+    context = {}
+    context['montant'] = OperationCommerciale.objects.aggregate(
+        montant_total=Sum('margeDegagee'))
+    return render(request, 'api_direction_generale/montant.html', context)
+"""

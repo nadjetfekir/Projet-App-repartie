@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'api_direction_generale',
     # our externe DB
     'DB1',
+    'django_tables2',
+    'Ruby',
 
 ]
 
@@ -78,19 +80,22 @@ WSGI_APPLICATION = 'mainproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd5g24u9ck926qp',
-        'USER': 'snzloskmvzxddx',
-        'PASSWORD': '8e43a5255d7572fbcae38777a4feb9e795819b4a050db3fd2fefc1217a104e4a',
-        'HOST': 'ec2-34-253-116-145.eu-west-1.compute.amazonaws.com',
+        'NAME': 'de4d2pmm5uu33p',
+        'USER': 'cgvewbkdwlhmfd',
+        'PASSWORD': 'd6c9fd76eb862219c0341936a37c93a9b5b8add9b8a569bc3e53d5dc1f57ff08',
+        'HOST': 'ec2-79-125-123-149.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
+
     },
+
+}
+
+"""
     'site_france': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
-}
-
-
+"""
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
