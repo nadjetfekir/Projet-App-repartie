@@ -6,8 +6,9 @@ urlpatterns = [
     path('employee/number', views.get_employee_count),
     path('employee/best_employee', views.get_best_employee),
     path('operationCommercial/', views.get_opertaionCommercial),
-    path('montants', views.get_montant),
-    path('panne', views.get_nb_panne),
+    path('operationCommercial/montant', views.get_montant),
+    #path('montants', views.get_montant),
+    #path('panne', views.get_nb_panne),
 
 
 ]
