@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'Ruby',
     # our externe DB
     'db_chili',
-    # 'db_danemark',
+    'db_danemark',
 
 ]
 
@@ -95,15 +95,14 @@ DATABASES = {
         'HOST': 'ec2-54-217-195-234.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     },
-
-    # 'site_danemark': {
-    #    'ENGINE': 'django.db.backends.mysql',
-    #    'NAME': 'de4d2pmm5uu33p',
-    #    'USER': 'b2075f4f77d3a4',
-    #    'PASSWORD': '83f7ec6d',
-    #    'HOST': 'eu-cdbr-west-02.cleardb.net',
-    #    'PORT': '5432',
-    # },
+    'site_danemark': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'heroku_81c277e85c2e8d4',
+        'USER': 'b2075f4f77d3a4',
+        'PASSWORD': '83f7ec6d',
+        'HOST': 'eu-cdbr-west-02.cleardb.net',
+        'PORT': '3306',
+    },
 
 }
 # Password validation

@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Personnels, Operationcommerciales
+from .models import Personnel, Operationcommerciale
 
 # Register your models here.
-admin.site.register(Personnels)
-admin.site.register(Operationcommerciales)
+admin.site.register(Personnel)
+admin.site.register(Operationcommerciale)

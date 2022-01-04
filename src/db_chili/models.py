@@ -8,7 +8,7 @@
 from django.db import models
 
 
-class Operationcommerciales(models.Model):
+class Operationcommerciale(models.Model):
     id = models.IntegerField(primary_key=True)
     # Field name made lowercase.
     identifiant = models.IntegerField(
@@ -41,7 +41,7 @@ class Operationcommerciales(models.Model):
         db_table = 'OperationCommerciales'
 
 
-class Personnels(models.Model):
+class Personnel(models.Model):
     id = models.IntegerField(primary_key=True)
     # Field name made lowercase.
     nomprenom = models.CharField(
