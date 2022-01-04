@@ -14,8 +14,7 @@ SECRET_KEY = 'nmlmxv#v&1)htm!rq$5n&et%)qdrf-n)i*ygr4gqaf^pu-4^ea'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.0.183']
 
 # Application definition
 
