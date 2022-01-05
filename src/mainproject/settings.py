@@ -88,10 +88,10 @@ DATABASES = {
     },
     'site_chili': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd803n5ifs6ff1p',
-        'USER': 'kkcpvqllcdqywo',
-        'PASSWORD': 'a22513d20ce317b3d3d674b9a8392152125f7acc0fe114cab2ff7bbaad3188d0',
-        'HOST': 'ec2-54-217-195-234.eu-west-1.compute.amazonaws.com',
+        'NAME': 'dbv93khqamkqiu',
+        'USER': 'ojeuiedgncmxod',
+        'PASSWORD': 'af82ffe5af82deb48828be43fcef179382654bda06627efd563f78a614f00066',
+        'HOST': 'ec2-54-195-141-170.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     },
     'site_danemark': {
