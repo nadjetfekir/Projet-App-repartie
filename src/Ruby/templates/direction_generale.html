@@ -1,13 +1,6 @@
 
 {% load static %}
-<style>
-  #head {
-  background: #f4f4f4 url("{% static 'images/lactalis.jpg' %}")   top center;
-  background-size: cover;
-  color: #7C7C7C;
-  padding: 30px 0 35px 0;
-}
-</style>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +47,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href={% url 'service_jur'  %}>service juridique</a></li>
-					<li><a href="about.html">Cyber sécurité</a></li>
+					<li><a href={% url 'cybersecurite'  %}>Cyber sécurité</a></li>
 				</ul>
 			
 			</div><!--/.nav-collapse -->			
@@ -65,9 +58,7 @@
 <main id="main">
 
 	<div class="container">
-		
-		
-		
+	
 		<div class="row section featured topspace">
 			<h2 class="section-title"><span>La direction générale</span></h2>
 			<div class="row">

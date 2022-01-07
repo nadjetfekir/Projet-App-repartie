@@ -1,5 +1,6 @@
 
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,8 +46,8 @@
 			
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href={% url 'service_dir'  %}>direction générale</a></li>
-					<li><a href="about.html">Cyber sécurité</a></li>
+					<li class="active"><a href={% url 'service_jur'  %}>service juridique</a></li>
+					<li><a href={% url 'cybersecurite'  %}>Cyber sécurité</a></li>
 				</ul>
 			
 			</div><!--/.nav-collapse -->			
@@ -58,35 +59,34 @@
 
 	<div class="container">
 		
-
+		
 		
 		<div class="row section featured topspace">
-			<h2 class="section-title"><span>Service juridique</span></h2>
+			<h2 class="section-title"><span>La direction générale</span></h2>
 			<div class="row">
-				<div class="col-md-5">
-					<h3 class="text-center">Nombre de machines en panne</h3>
-					<h1><center>{{montant}}</center></h1>
-				</div>
-				<div class="col-md-7">
-					<h3 class="text-center">Nombre maximum de personnel juridique</h3>
-					<h1><center>100</center></h1>
+				<div class=" col-md-6">
+					<h3 class="text-center">Le montant total de tous les achats</h3>
+					<h1><center>{{drone}}</center></h1>
 				</div>
 				
+				<div class=" col-md-6">
+					<h3 class="text-center">Nombre d’employés total   du groupe</h3>
+					<h1><center>{{max}}</center></h1>
+				</div>
 			</div>
 		</div> <!-- / section -->
-        <div class="row section topspace">
+	
+		<div class="row section topspace">
 			<div class="col-md-12">
                 
 			</div>
 		</div>
-        <div class="row section topspace">
+    <div class="row section topspace">
 			<div class="col-md-12">
                 
 			</div>
 		</div>
 		
-		
-
 
 	</div>	<!-- /container -->
 

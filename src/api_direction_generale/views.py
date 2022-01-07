@@ -161,59 +161,14 @@ def get_best_employee(request):
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
-def get_montantA(request):
-    montant = OperationCommerciale.objects.aggregate(
-        montant_total=Sum('margeDegagee'))
-    html = "<html><body><h2>Le montant totale:</h2> est %d.</body></html>" % int(
-        montant["montant_total"])
-    return HttpResponse(html)
-
-
-def get_nb_panne(request):
     response = requests.get(
-        'http://172.20.10.4:3000/machines/nombreEnPanne')
-    print('//////////////////////')
-
-    print(response.text)
-    html = "<html><body><h2>Le nombre totale de machine en panne:</h2> est %s.</body></html>" % response.text
-    return HttpResponse(html)
-
-
-"""
-def get_montantA(request):
-    context = {}
-    context['montant'] = OperationCommerciale.objects.aggregate(
-        montant_total=Sum('margeDegagee'))
-    return render(request, 'api_direction_generale/montant.html', context)
-"""
-
-
-def get_montant_total(request):
-    montant = OperationCommerciale.objects.aggregate(
-        montant_total=Sum('margeDegagee'))
-    context = {
-        'montant': int(montant["montant_total"]),
+        'http://192.168.43.232:5000/surveillance/nombre_drone_panne')
+    drone_panne=response.text
+    response1 =  requests.get(
+        'http://192.168.43.232:5000/formation/max_pourcentage_satisfaction')
+    max_pourcentage_satisfaction=response1.text
+    context={
+        'drone':drone_panne,
+        'max':max_pourcentage_satisfaction,
     }
-    return render(request, 'montant.html', context=context)
-
-
-def stat_france(request):
-    nb = Personnel.objects.count()+db_chili.models.Personnel.objects.using(
-        'site_chili').count()+db_danemark.models.Personnel.objects.using(
-        'site_danemark').count()
-    montant = OperationCommerciale.objects.aggregate(
-        montant_total=Sum('margeDegagee'))
-    context = {
-        'montant': int(montant["montant_total"]),
-        'nb': nb
-    }
-    return render(request, 'montant.html', context=context)
-
-
-def get_juridique(request):
-    montant = OperationCommerciale.objects.aggregate(
-        montant_total=Sum('margeDegagee'))
-    context = {
-        'montant': int(montant["montant_total"]),
-    }
-    return render(request, 'service_juridique.html', context=context)
+    return render(request, 'service_cybersecurite.html', context=context)
