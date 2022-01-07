@@ -53,6 +53,9 @@ def get_employee_count(request):
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
+
+
+    
 @api_view(['GET'])
 def get_employee(request):
     if request.method == 'GET':
@@ -155,6 +158,7 @@ def get_best_employee(request):
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
+
 def get_montantA(request):
     montant = OperationCommerciale.objects.aggregate(
         montant_total=Sum('margeDegagee'))
@@ -180,3 +184,28 @@ def get_montantA(request):
         montant_total=Sum('margeDegagee'))
     return render(request, 'api_direction_generale/montant.html', context)
 """
+
+def get_montant_total(request):
+    montant = OperationCommerciale.objects.aggregate(montant_total=Sum('margeDegagee'))
+    context={
+        'montant':int(montant["montant_total"]),
+    }
+    return render(request, 'montant.html', context=context)
+
+def stat_france(request):
+    nb=Personnel.objects.count()+db_chili.models.Personnel.objects.using(
+            'site_chili').count()+db_danemark.models.Personnel.objects.using(
+            'site_danemark').count()
+    montant = OperationCommerciale.objects.aggregate(montant_total=Sum('margeDegagee'))
+    context={
+        'montant':int(montant["montant_total"]),
+        'nb':nb
+    }
+    return render(request, 'montant.html', context=context)
+
+def get_juridique(request):
+    montant = OperationCommerciale.objects.aggregate(montant_total=Sum('margeDegagee'))
+    context={
+        'montant':int(montant["montant_total"]),
+    }
+    return render(request, 'service_juridique.html', context=context)
